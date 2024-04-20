@@ -3,6 +3,13 @@ import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js"
 import { User } from "../models/user.modal.js"
 
+
+const ready = asyncHandler(async (req , res) =>{
+    return res
+    .status(200)
+    .json(new ApiResponse(200 , {} , "It is a sucess"))
+})
+
 const signUpUser = asyncHandler(async (req, res) => {
     // get user from frontend
     // verify the user information
@@ -28,4 +35,4 @@ const signUpUser = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, createdUser, "User Created  Successfully"));
 });
 
-export { signUpUser }
+export { signUpUser ,ready}
